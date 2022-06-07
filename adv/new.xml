@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>~/img/kubus.jpeg</ImageUrl>
+		<NavigateUrl>http://www.1800flowers.com</NavigateUrl>
+	</Ad>
+
+	<Ad>
+		<ImageUrl>~/img/harry.jpg</ImageUrl>
+		<NavigateUrl>http://www.babybouquets.com.au</NavigateUrl>
+	</Ad>
+
+</Advertisements>
