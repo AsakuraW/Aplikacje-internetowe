@@ -1,0 +1,49 @@
+﻿@model LibApp.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Wypisz z biblioteki</h2>
+
+<h3>Na pewno chcesz wypisać użytkownika @Model.Imie @Model.Nazwisko?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer_kontaktowy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer_kontaktowy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.ActionLink("Powrót do klientów", "Index") |
+    <input type="submit" value="Wypisz" class="btn btn-danger" />
+
+</div>
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<!--<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>-->
+<h2>Nowości w naszej bibliotece</h2>
+<h4>Nie zwlekaj i <a href="/BooksAsCustomer">sprawdź ich dostępność</a></h4>
+<style>
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+    .column {
+        -ms-flex: 30%;
+        flex: 30%;
+        max-width: 30%;
+        padding: 0 4px;
+    }
+    img{
+        margin-left:2px;
+    }
+    img:hover {
+        transform: scale(5.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+<div class="row">
+    <div class="column" style="margin-left: auto; margin-right: auto;">
+        <img src="~/img/harry.jpg" style="width:15%">
+        <img src="~/img/kubus.jpeg" style="width:15%">
+        <img src="~/img/mikolajek.jpg" style="width:15%">
+        <img src="~/img/pinokio.jpg" style="width:15%">
+        <img src="~/img/wiedzmin.jpg" style="width:15%">
+        <img src="~/img/donald.jpg" style="width:15%">
+    </div>
+
+</div>

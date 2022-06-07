@@ -1,0 +1,56 @@
+﻿@model PagedList.IPagedList<LibApp.Models.Customer>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Klienci/Czytelnicy</h2>
+@using (Html.BeginForm( FormMethod.Get))
+{
+    <p>
+        Szukaj kienta: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string,new { @style= "color:black" })
+        <input class="btn-warning" type="submit" value="Szukaj" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Dodaj nowego klienta", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Imie", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Nazwisko", "Index")
+        </th>
+        <th>
+            @Html.ActionLink("Numer kontaktowy", "Index")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numer_kontaktowy)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.CustomerId }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.CustomerId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Wypisz", "Delete", new { id = item.CustomerId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

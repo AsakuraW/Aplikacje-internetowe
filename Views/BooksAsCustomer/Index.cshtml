@@ -1,0 +1,62 @@
+﻿@model IEnumerable<LibApp.Models.BookView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista książek</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tytul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrSeryjny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wydawnictwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tytul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrSeryjny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wydawnictwo)
+            </td>
+            <td>
+                @if (item.IsAvailable)
+                {
+                    <h5 style="color: green; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Dostępne</h5>
+                }
+                else
+                {
+                    <h5 style="color: red; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ">Chwilowo niedostępne</h5>
+                }
+
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.BookId }, new { @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+
+</table>

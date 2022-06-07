@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LibApp.Models.BookView>
+
+@{
+    ViewBag.Title = "Wypożycz książkę";
+}
+
+<h2>Wypożycz książkę</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowy egzemplarz", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tytul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrSeryjny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wydawnictwo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Tytul, "Details", new { id = item.BookId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrSeryjny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wydawnictwo)
+            </td>
+            <td>
+                @if (item.IsAvailable)
+                {
+                    @Html.ActionLink("Wypożycz", "Create", "BorrowHistories", new { id = item.BookId }, new { @class = "btn btn-primary" })
+                    <span>@Html.ActionLink("Delete", "Delete", new { id = item.BookId }, new { @class = " btn btn-danger" })</span>
+                }
+                else
+                {
+                    @Html.ActionLink("Zwróć", "Edit", "BorrowHistories", new { id = item.BookId }, new { @class = "btn btn-success" })
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Sprawdź historię wypożyczeń", "Index","BorrowHistories")
