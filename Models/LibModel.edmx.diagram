@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="65f0bbf0c9774b9186ec009818845096" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="LibModel.C__MigrationHistory" Width="1.5" PointX="13.625" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.AspNetRoles" Width="1.5" PointX="8.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.AspNetUserClaims" Width="1.5" PointX="13.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.AspNetUserLogins" Width="1.5" PointX="13.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.AspNetUsers" Width="1.5" PointX="10.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.Books" Width="1.5" PointX="8.625" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.BorrowHistories" Width="1.5" PointX="10.875" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibModel.Customers" Width="1.5" PointX="10.75" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="LibModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LibModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LibModel.FK_dbo_BorrowHistories_dbo_Books_BookId" ManuallyRouted="false" />
+        <AssociationConnector Association="LibModel.FK_dbo_BorrowHistories_dbo_Customers_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="LibModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
